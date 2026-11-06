@@ -1,0 +1,89 @@
+/* ABA Studio – ortak stil. Sayfa: yeşil oyun masası üstünde krem bir kart. */
+:root {
+  --masa: #145A3A;
+  --masa-koyu: #0D4129;
+  --cini: #0E5A66;
+  --altin: #E8B923;
+  --kart: #FBF6EC;
+  --murekkep: #1F2A44;
+  --soluk: #5B6478;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --masa: #0C3A25;
+    --masa-koyu: #072617;
+    --kart: #1E2A2B;
+    --murekkep: #EDE6D6;
+    --soluk: #A9B4AE;
+    --cini: #5FB8C2;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --masa: #0C3A25; --masa-koyu: #072617; --kart: #1E2A2B;
+  --murekkep: #EDE6D6; --soluk: #A9B4AE; --cini: #5FB8C2; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 0%, var(--masa) 0%, var(--masa-koyu) 100%) fixed;
+  color: var(--murekkep);
+  font: 17px/1.6 "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  padding: 32px 16px 48px;
+}
+
+.kart {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--kart);
+  border-radius: 22px;
+  padding: 40px clamp(20px, 5vw, 48px);
+  box-shadow: 0 0 0 2px var(--altin) inset, 0 18px 40px rgba(0, 0, 0, .35);
+}
+
+h1, h2, h3 {
+  font-family: "Baloo 2", "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.15;
+  margin: 0;
+}
+h1 { font-size: clamp(2.2rem, 7vw, 3.2rem); font-weight: 800; }
+h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2.2rem; color: var(--cini); }
+h3 { font-size: 1.15rem; font-weight: 700; margin-top: 1.4rem; }
+p, li { max-width: 68ch; }
+ul { padding-left: 1.2rem; }
+li { margin: .35rem 0; }
+
+a { color: var(--cini); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--altin); outline-offset: 3px; border-radius: 4px; }
+
+.alt-yazi { color: var(--soluk); font-size: .95rem; }
+
+/* Ana sayfa: kart köşelerinde iskambil gibi küçük simgeler */
+.kose { font-size: 1.6rem; line-height: 1; color: var(--cini); }
+.kose.alt { text-align: right; transform: rotate(180deg); }
+
+.uygulama { display: flex; gap: 18px; align-items: center; margin: 22px 0 8px; }
+.ikon {
+  flex: none; width: 76px; height: 76px; border-radius: 18px;
+  background: var(--cini); display: grid; place-items: center; font-size: 42px;
+  box-shadow: 0 0 0 2px var(--altin) inset;
+}
+.dugme {
+  display: inline-block; margin-top: 18px; padding: 12px 22px; border-radius: 14px;
+  background: var(--altin); color: #0B3D2E; font-weight: 700; text-decoration: none;
+}
+.dugme.soluk { background: transparent; color: var(--cini); box-shadow: 0 0 0 1.5px var(--cini) inset; margin-left: 8px; }
+
+/* Politika: içindekiler */
+.icindekiler { background: rgba(14, 90, 102, .08); border-radius: 14px; padding: 14px 20px; margin: 22px 0; }
+.icindekiler ol { margin: 0; padding-left: 1.3rem; }
+.ozet { border-left: 4px solid var(--altin); padding: 4px 0 4px 16px; margin: 18px 0; }
+
+footer { max-width: 720px; margin: 22px auto 0; text-align: center; color: #CFE3D6; font-size: .9rem; }
+footer a { color: #FFE8A3; }
